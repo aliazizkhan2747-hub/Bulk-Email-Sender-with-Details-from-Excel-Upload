@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<title>Bulk Email Sender</title>
+
+<style>
+
+body{
+    background:#eef2f7;
+    font-family:'Segoe UI',sans-serif;
+}
+
+.container{
+    max-width:900px;
+    margin:40px auto;
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+h1{
+    text-align:center;
+    color:#1f4e79;
+    margin-bottom:30px;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:6px;
+    font-weight:600;
+}
+
+input[type=text],
+input[type=password],
+textarea{
+
+    width:100%;
+    padding:12px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    font-size:14px;
+    box-sizing:border-box;
+}
+
+textarea{
+    resize:vertical;
+    min-height:250px;
+}
+
+input[type=file]{
+    margin-top:10px;
+}
+
+button{
+
+    width:100%;
+    margin-top:25px;
+
+    background:#1f4e79;
+    color:white;
+
+    border:none;
+    border-radius:8px;
+
+    padding:14px;
+    font-size:16px;
+
+    cursor:pointer;
+}
+
+button:hover{
+    background:#173955;
+}
+
+.hint{
+
+    margin-top:30px;
+
+    background:#f5f9ff;
+    border:1px solid #d7e7ff;
+
+    border-radius:10px;
+
+    padding:20px;
+}
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+table,
+th,
+td{
+    border:1px solid #cfd8e3;
+}
+
+th{
+    background:#1f4e79;
+    color:white;
+}
+
+th,
+td{
+    padding:10px;
+    text-align:left;
+}
+
+.info{
+    color:#666;
+    margin-bottom:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Bulk Email Sender</h1>
+
+<form action="/send"
+      method="post"
+      enctype="multipart/form-data">
+
+<label>
+Sender Email
+</label>
+
+<input
+    type="text"
+    name="sender_email"
+    placeholder="yourname@company.com"
+    required>
+
+
+<label>
+Sender Password / App Password
+</label>
+
+<input
+    type="password"
+    name="sender_password"
+    required>
+
+
+<label>
+Email Subject
+</label>
+
+<input
+    type="text"
+    name="email_subject"
+    value="New System Migration"
+    required>
+
+
+<label>
+Email Body
+</label>
+
+<textarea
+name="email_body"
+required>
+
+Dear Team,
+
+Please use the new system going forward:
+
+New System URL: https://www.github.com
+
+Your Credentials:
+Username: {username}  # this is getting from excel file first coloum name
+Password: {password}  # this is getting from excel file Second coloum name
+
+Kindly update your bookmarks, please contact if any help required.
+
+Thanks for your cooperation.
+
+Best Regards,
+Ali Aziz
+GITHUB
+
+</textarea>
+
+
+<label>
+Excel File
+</label>
+
+<input
+    type="file"
+    name="excel_file"
+    accept=".xlsx,.xls"
+    required>
+
+<button type="submit">
+Send Emails
+</button>
+
+</form>
+
+
+<div class="hint">
+
+<h2>Available Placeholders</h2>
+
+<p class="info">
+Use these placeholders anywhere in the email body.
+</p>
+
+<table>
+
+<tr>
+<th>Placeholder</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>{username}</td>
+<td>User email from Excel</td>
+</tr>
+
+<tr>
+<td>{password}</td>
+<td>Password from Excel</td>
+</tr>
+
+</table>
+
+<br>
+
+<h2>Required Excel Format</h2>
+
+<table>
+
+<tr>
+<th>username</th>
+<th>password</th>
+</tr>
+
+<tr>
+<td>user1@company.com</td>
+<td>Pass123</td>
+</tr>
+
+<tr>
+<td>user2@company.com</td>
+<td>Welcome456</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+</html>
