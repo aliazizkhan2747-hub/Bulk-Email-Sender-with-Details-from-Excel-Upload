@@ -23,8 +23,9 @@ Bulk Email with Specific Detail from Excel is a Python-based automation tool tha
 ## 🚀 Getting Started
 
 ```bash
+make a template folder in it and put index.html there and come back to main foler
 Run terminal
-cd FOLDER
+cd main FOLDER (Not template)
 pip install -r requirements.txt
 python main.py
 ```
